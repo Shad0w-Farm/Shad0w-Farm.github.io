@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Fazil Khan — Product Security</title>
+<meta name="description" content="Fazil Khan — Staff Product Security Leader. AppSec end to end, and the security of the AI we build with. Live demos, tooling, and writing." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #101923;
+    --raise: #16222e;
+    --line: #24384a;
+    --text: #e9eef4;
+    --muted: #93a4b4;
+    --pass: #4ac98b;
+    --flag: #e0a63c;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Instrument Sans", -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.65;
+    font-size: 1.0625rem;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  a { color: var(--text); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; transition: text-decoration-color .15s; }
+  a:hover { text-decoration-color: var(--pass); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--pass); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
+
+  header.top {
+    position: sticky; top: 0; z-index: 5;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .top-row { display: flex; align-items: baseline; justify-content: space-between; padding-block: .8rem; }
+  .top-row .who { font-weight: 700; letter-spacing: -0.01em; text-decoration: none; }
+  nav a { margin-left: 1.1rem; font-size: .95rem; color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { padding-block: 4.5rem 3rem; }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+  .hero .role { color: var(--muted); margin-top: .6rem; max-width: 36rem; }
+
+  .verdict {
+    margin-top: 2.2rem;
+    background: var(--raise);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.1rem 1.25rem;
+    font-size: .92rem;
+    line-height: 1.9;
+    overflow-x: auto;
+  }
+  .verdict .cmd { color: var(--muted); }
+  .verdict .k { color: var(--muted); display: inline-block; min-width: 9ch; }
+  .verdict .pass { color: var(--pass); font-weight: 500; }
+  .verdict .flag { color: var(--flag); }
+  .verdict .cursor { display: inline-block; width: .55em; height: 1.05em; background: var(--pass); vertical-align: text-bottom; animation: blink 1.1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .verdict .cursor { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  section { padding-block: 2.6rem; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 1.2rem; }
+  p + p { margin-top: .9rem; }
+  .muted { color: var(--muted); }
+
+  /* Live demos — the two things to click */
+  .demo { padding: 1.1rem 0; }
+  .demo + .demo { border-top: 1px dashed var(--line); }
+  .demo h3 { font-size: 1.08rem; font-weight: 700; }
+  .demo h3 a { text-decoration-color: var(--pass); }
+  .demo p { color: var(--muted); margin-top: .3rem; font-size: .98rem; }
+  .demo .state { font-size: .8rem; color: var(--pass); }
+
+  /* Work list — a list, not cards */
+  ul.work { list-style: none; }
+  ul.work li { padding-block: .85rem; }
+  ul.work li + li { border-top: 1px dashed var(--line); }
+  ul.work .name { font-weight: 700; }
+  ul.work .desc { color: var(--muted); font-size: .98rem; margin-top: .15rem; }
+
+  /* Principles */
+  .principles p { max-width: 40rem; }
+  .principles strong { font-weight: 700; }
+
+  footer { padding-block: 2.4rem 3.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+  footer .links a { margin-right: 1.2rem; }
+
+  @media (max-width: 560px) {
+    nav a { margin-left: .8rem; }
+    .hero { padding-block: 3rem 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="who" href="#">Fazil Khan</a>
+    <nav aria-label="Sections">
+      <a href="#demos">Live demos</a>
+      <a href="#work">Work</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <h1>I secure the software factory — and the AI we're wiring into it.</h1>
+    <p class="role">Staff Product Security Leader in energy-tech, Al Khobar. Threat models that change architectures, pipelines that catch what reviews miss, and agents that ship inside guardrails.</p>
+
+    <div class="verdict mono" aria-label="Profile summary, styled as a pipeline verdict">
+      <div class="cmd">$ scan --target fazil.khan</div>
+      <div><span class="k">focus</span> application security, end to end</div>
+      <div><span class="k">current</span> securing AI systems — models, context, agents</div>
+      <div><span class="k">flagged</span> <span class="flag">unreviewed trust in autonomous pipelines</span></div>
+      <div><span class="k">verdict</span> <span class="pass" id="verdict-line">ship it — with evidence attached</span><span class="cursor" aria-hidden="true"></span></div>
+    </div>
+  </div>
+
+  <section id="demos">
+    <h2>Live demos</h2>
+    <div class="demo">
+      <p class="state mono">running now</p>
+      <h3><a href="https://huggingface.co/spaces/YOUR-HF-USERNAME/safety-playground">AI Safety Playground</a></h3>
+      <p>A text-safety classifier that runs entirely in your browser — no server, no API key, nothing leaves your machine. The input-filtering pattern that protects LLM apps, at a size that runs anywhere.</p>
+    </div>
+    <div class="demo">
+      <p class="state mono">heals on schedule</p>
+      <h3><a href="https://github.com/Shad0w-Farm/self-healing-cicd">Self-Healing CI/CD Pipeline</a></h3>
+      <p>A pipeline that detects its own failures, diagnoses the root cause from its logs, and remediates without a human: rerun the flake, auto-fix the lint, revert the bad commit. Break it yourself with the chaos trigger and watch it recover.</p>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <ul class="work">
+      <li>
+        <span class="name"><a href="https://github.com/Shad0w-Farm/Application-Security">Application-Security</a></span>
+        <p class="desc">End-to-end AppSec, from threat modeling to secure deployment. The reference I wish I'd had when I started.</p>
+      </li>
+      <li>
+        <span class="name"><a href="https://github.com/Shad0w-Farm/Securing-Context-Engineering">Securing-Context-Engineering</a></span>
+        <p class="desc">Context is the new attack surface: securing what an AI reads, retrieves, and remembers.</p>
+      </li>
+      <li>
+        <span class="name"><a href="https://github.com/Shad0w-Farm/LLM-Security">LLM-Security</a></span>
+        <p class="desc">Injection, jailbreaks, data leakage — and the controls that actually hold up in production.</p>
+      </li>
+      <li>
+        <span class="name"><a href="https://github.com/Shad0w-Farm/secchallenge">secchallenge</a></span>
+        <p class="desc">An agentic SDLC built end to end: DevSecOps pipeline, sandboxed CI/CD, autonomous agents with a security consultant in the loop.</p>
+      </li>
+      <li>
+        <span class="name"><a href="https://github.com/Shad0w-Farm/Solution-Architect">Solution-Architect</a></span>
+        <p class="desc">The working notebook of becoming an architect: patterns, trade-offs, decisions with reasons attached.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="principles">
+    <h2>How I work</h2>
+    <p><strong>A finding without evidence is an opinion.</strong> Mine ship with the request, the log line, or the probe output attached.</p>
+    <p><strong>Shift left, verify right.</strong> Design reviews kill classes of bugs; scanners catch instances; production tells the truth.</p>
+    <p><strong>A fix isn't done when the patch lands.</strong> It's done when the rescan is green and the runbook exists.</p>
+  </section>
+
+  <section id="writing">
+    <h2>Writing</h2>
+    <p>I write on <a href="https://medium.com/@nahklizaf">Medium</a> about application security that survives contact with real delivery timelines, and about securing AI systems before they're trusted with production access.</p>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="links">
+      <a href="https://github.com/Shad0w-Farm">GitHub</a>
+      <a href="https://www.linkedin.com/in/fazil-khan-cyber">LinkedIn</a>
+      <a href="https://medium.com/@nahklizaf">Medium</a>
+    </p>
+    <p style="margin-top:.8rem">Happy to talk about threat modeling workshops, DevSecOps pipelines, and securing agentic systems.</p>
+  </div>
+</footer>
+
+<script>
+  // One motion moment: the verdict line types itself once. Skipped under reduced motion.
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var el = document.getElementById("verdict-line");
+    var full = el.textContent;
+    el.textContent = "";
+    var i = 0;
+    var t = setInterval(function () {
+      el.textContent = full.slice(0, ++i);
+      if (i >= full.length) clearInterval(t);
+    }, 28);
+  })();
+</script>
+
+</body>
+</html>
